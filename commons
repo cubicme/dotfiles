@@ -2,7 +2,7 @@
 
 function cmd {
    if [ $LOG ]; then
-       echo $@
+       echo "LOG: $@"
    fi
    $($@)
 }

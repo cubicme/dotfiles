@@ -1,6 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 . $(dirname $(readlink -f "$0"))/commons
 
+LOG=1
 
 for f in ./dot_*
 do
@@ -18,3 +19,24 @@ done
 
 mkdir -p $HOME/.bin
 try_ln $PWD/utils/dotify $HOME/.bin/dotify
+
+if [ ! -e $HOME/.zprezto ]; then
+    git submodule update --init --recursive
+fi
+
+setopt EXTENDED_GLOB
+for rcfile in $HOME/.zprezto/runcoms/^README.md(.N)
+do
+  try_ln "$rcfile" "$HOME/.${rcfile:t}"
+done
+
+brew bundle
+asdf install
+
+if [ ! -e $HOME/.emacs.d ]; then
+    git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
+fi
+
+try_ln /usr/local/opt/emacs-mac/Emacs.app /Applications/Emacs.app
+
+doom install

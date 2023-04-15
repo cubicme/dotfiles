@@ -1,0 +1,3 @@
+[submodule "dot_zprezto"]
+	path = dot_zprezto
+	url = git@github.com:cubicme/prezto.git

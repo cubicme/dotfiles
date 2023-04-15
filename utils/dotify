@@ -6,7 +6,7 @@ src=$PWD/$file
 dest="$HOME/.dotfiles/dot_${file:1}"
 
 [ -L $src ] && abort "$file is already a symlink"
-[ ! -f $src ] && abort "$file doesn't exist"
+[ ! -e $src ] && abort "$file doesn't exist"
 [ -e $dest ] && abort "$(basename $dest) already exists; Resolve it yourself"
 
 cmd "mv $src $dest"
