@@ -1,0 +1,13 @@
+. "$HOME/.cargo/env"
+
+export EDITOR=vim
+alias ls=exa
+
+export PATH=$PATH:/opt/homebrew/bin
+
+export N_PREFIX=~/.n
+export PATH=$PATH:$N_PREFIX/bin
+export PATH=$PATH:~/.bin
+export PATH=$PATH:~/.mix/escripts
+export PATH=$PATH:~/.emacs.d/bin
+

@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. $(dirname $(readlink -f "$0"))/../commons
+
+file=$1
+src=$PWD/$file
+dest="$HOME/.dotfiles/dot_${file:1}"
+
+[ -L $src ] && abort "$file is already a symlink"
+[ ! -f $src ] && abort "$file doesn't exist"
+[ -e $dest ] && abort "$(basename $dest) already exists; Resolve it yourself"
+
+cmd "mv $src $dest"
+try_ln $dest $src

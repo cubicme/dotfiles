@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+. $(dirname $(readlink -f "$0"))/commons
+
+
+for f in ./dot_*
+do
+ filename=$(basename $f)
+ clean_name=${filename/dot_/.}
+ dest=$HOME/$clean_name
+
+ if [ -e $dest ]; then
+     echo "$clean_name already exists\tSkipping"
+ else
+     echo "Linking to $dest"
+     cmd ln -s $(pwd)/$filename $dest
+ fi
+done
+
+mkdir -p $HOME/.bin
+try_ln $PWD/utils/dotify $HOME/.bin/dotify

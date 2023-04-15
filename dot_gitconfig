@@ -1,0 +1,7 @@
+[user]
+    name = cubicme
+    email = sa.monemian@gmail.com
+[init]
+    defaultBranch = main
+[core]
+    excludesfile = ~/.gitignore

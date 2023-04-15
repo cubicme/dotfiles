@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+function cmd {
+   if [ $LOG ]; then
+       echo $@
+   fi
+   $($@)
+}
+
+function try_ln {
+ if [ -e $2 ]; then
+     echo "symlink $2 already exists"
+     return
+ fi
+ cmd ln -s $1 $2
+}
+
+function abort {
+    echo $1
+    exit
+}
