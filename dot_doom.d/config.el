@@ -74,3 +74,21 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Hydra
+(defhydra doom-window-resize-hydra (:hint nil)
+  "
+    _k_ increase height
+    _h_ decrease width
+    _l_ increase width
+    _j_ decrease height
+  "
+  ("h" evil-window-decrease-width)
+  ("j" evil-window-increase-height)
+  ("k" evil-window-decrease-height)
+  ("l" evil-window-increase-width)
+  ("q" nil))
+
+(map! :leader
+    (:prefix "w"
+      :desc "Hydra resize" :n "SPC" #'doom-window-resize-hydra/body))

@@ -1,16 +1,12 @@
 font:
   normal:
-    style: Book
-    family: "CaskaydiaCove NF"
+    family: "Cascadia Code"
   bold:
-    style: Book
-    family: "CaskaydiaCove NF"
+    family: "Cascadia Code"
   italic:
-    style: Book
-    family: "CaskaydiaCove NF"
+    family: "Cascadia Code"
   bold_italic:
-    style: Book
-    family: "CaskaydiaCove NF"
+    family: "Cascadia Code"
   size: 16.0
 
 key_bindings:
